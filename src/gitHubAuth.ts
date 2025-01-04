@@ -12,3 +12,4 @@ export const getGitHubAuthSession = async () => {
         vscode.window.showErrorMessage('GitHub authentication failed: ' + (error as Error).message);
     }
 };
+

@@ -23,11 +23,11 @@ const getSettingsHTML = () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>settings</title>
+    <title>CodeTracker</title>
 </head>
+
 <body>
     <main>
-    <h1 class="text-rose-600">settings</h1>
         <div class="container">
             <label for="timeInterval">Time Duration between commits: </label>
             <select name="timeInterval" id="timeInterval">
@@ -41,7 +41,11 @@ const getSettingsHTML = () => {
             <label for="customTimeInterval">Custom duration in minutes: </label>
             <input name="customTimeInterval" id="customTimeInterval" type="number" max="1000">
         </div>
-        <button type="button" id="save" class="save-btn">Save</button>
+        <button id="save-btn"
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            Save
+        </button>
+
     </main>
     <script>
         const CUSTOM = "custom";
@@ -53,5 +57,6 @@ const getSettingsHTML = () => {
         })
     </script>
 </body>
+
 </html>`;
 };
