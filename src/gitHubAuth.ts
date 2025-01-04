@@ -1,5 +1,5 @@
 import  * as vscode from 'vscode';
-import 'dotenv/config';
+
 
 export const getGitHubAuthSession = async () => {
     const GITHUB = "github";

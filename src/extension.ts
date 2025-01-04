@@ -10,23 +10,24 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('code-tracker.main', () => {
+	const disposable = vscode.commands.registerCommand('code-tracker.main', () => { 
+		
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		const session:Promise<vscode.AuthenticationSession|undefined>= getGitHubAuthSession();
+		const session: Promise<vscode.AuthenticationSession | undefined> = getGitHubAuthSession();
+		
 		session.then(()=>{
 		if (session === undefined) {
 			vscode.window.showErrorMessage('GitHub Session not found');
 		} else {
 			vscode.window.showInformationMessage('Session logged in successfully');		
-			
 		}
 		}).catch((err) => {
 			vscode.window.showErrorMessage('GitHub session authentication failed',err);
 		});
 	});
 	const disposableSettings = vscode.commands.registerCommand('code-tracker.settings', () => {
-			createSettingsWebView();
+			createSettingsWebView(context);
 	 });
 
 	context.subscriptions.push(disposable);
