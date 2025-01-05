@@ -1,7 +1,9 @@
 import * as vscode from 'vscode';
 import { getGitHubAuthSession } from './gitHubAuth';
 import { createSettingsWebView } from './createWebView';
-import { connectDb } from './handleDBactions';
+import { connectDb, saveDataToDb } from './handleDBactions';
+import { checkIsOldUser } from './commonActions';
+import { Db } from 'mongodb';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -12,6 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 			if (session !== undefined) {
 				vscode.window.showInformationMessage('Session logged in successfully');	
 				connectDb();
+				startTracking(authToken);
 		} else {
 			vscode.window.showErrorMessage('GitHub Session not found');
 		}
@@ -30,3 +33,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
+
+
+const startTracking = (authToken: vscode.AuthenticationSession | undefined) => {
+	if (authToken !== undefined) {
+		vscode.window.showInformationMessage('Code Tracking session has started',);
+		if (checkIsOldUser(authToken)) {
+				// TODO : Add functionality 
+		} else {
+			vscode.window.showInformationMessage('Thank you for showing interest in using code tracker');
+		}
+	}
+};
