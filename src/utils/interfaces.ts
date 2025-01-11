@@ -1,18 +1,16 @@
 export interface IUser {
     account: IAccount;
     id: string;
-    scope: Array<string>;
-    premiumUser: boolean;
-    planDetails: object;
-    accountCreatedAt: Date;
+    scope?: Array<string>;
+    accountCreatedAt: number;
+    currentDir: string;
     repoName: string;
+    repoMode: 'public' | 'private';
+    accessToken: string;
+    settings: ISettings;
 }
-export interface IAdditionalInfo{
-    account: IAccount;
-    usageDuration: BigInt;
-}
+
 export interface ISettings{
-    account: IAccount;
     timeDuration: string;
     isCustom: boolean;
     isGetReportAllowed: boolean;
@@ -21,8 +19,4 @@ export interface ISettings{
 export interface IAccount{
     label: string;
     id: string;
-}
-export interface IPlan{
-    subscription: 'none' | 'monthly' | 'yearly',
-    price: string;
 }
