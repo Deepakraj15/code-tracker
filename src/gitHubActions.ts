@@ -1,7 +1,6 @@
 import * as vscode from "vscode";
-
+import axios from "axios";
 export const createGitRepo = (session: vscode.AuthenticationSession) => {
-    const REPO_NAME = "Code-tracking-and-logging-repo";
     
 };
 export const commitChanges = (session: vscode.AuthenticationSession, commit: string) => {
