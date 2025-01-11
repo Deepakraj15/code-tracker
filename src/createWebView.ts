@@ -1,4 +1,3 @@
-import path from 'path';
 import * as vscode from 'vscode';
 
 export const createSettingsWebView = (context:vscode.ExtensionContext) => {
