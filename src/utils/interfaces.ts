@@ -15,6 +15,7 @@ export interface ISettings{
     isCustom: boolean;
     isGetReportAllowed: boolean;
     getReport: boolean;
+    description: string;
 }
 export interface IAccount{
     label: string;

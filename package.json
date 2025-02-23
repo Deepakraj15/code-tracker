@@ -22,6 +22,10 @@
       {
         "command": "code-tracker.settings",
         "title": "Open Code Tracker Settings"
+      },
+      {
+        "command": "extension.showMessage",
+        "title": "Show Status Bar Message"
       }
     ]
   },
